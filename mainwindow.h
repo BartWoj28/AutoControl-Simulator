@@ -27,8 +27,25 @@ private slots:
     void on_startButton_clicked();
     void on_stopButton_clicked();
     void on_resetButton_clicked();
+    void on_wznowButton_clicked();
     void on_signalTypeComboBox_currentIndexChanged(int index);
     void updateSimulation();
+
+    // Sloty do dynamicznej zmiany parametrów
+    void on_spinBoxA1_valueChanged(double value);
+    void on_spinBoxA2_valueChanged(double value);
+    void on_spinBoxA3_valueChanged(double value);
+    void on_spinBoxB1_valueChanged(double value);
+    void on_spinBoxB2_valueChanged(double value);
+    void on_spinBoxB3_valueChanged(double value);
+
+    void on_spinBoxK_valueChanged(double value);
+    void on_spinBoxTi_valueChanged(double value);
+    void on_spinBoxTd_valueChanged(double value);
+
+    void on_spinBoxAmplituda_valueChanged(double value);
+    void on_spinBoxOkres_valueChanged(double value);
+    void on_spinBoxWypelnienie_valueChanged(double value);
 
 private:
     int krok = 0;
@@ -42,6 +59,7 @@ private:
     QLineSeries *series;
     QLineSeries *seriesSetpoint;
     QValueAxis *axisX;
+    QValueAxis *axisY;
 
     QChart *chartPID;
     QChartView *chartViewPID;
@@ -57,6 +75,5 @@ private:
     QValueAxis *axisXUchyb;
     QValueAxis *axisYUchyb;
 };
-
 
 #endif // MAINWINDOW_H

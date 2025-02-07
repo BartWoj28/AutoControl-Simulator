@@ -18,4 +18,13 @@ public:
     ModelARX(std::vector<double> wspA, std::vector<double> wspB, int opoznienie = 0);
     double symuluj(double wejscie);
     ~ModelARX();
+
+    // Setery i getery
+    void setWspA(const std::vector<double>& noweA);
+    void setWspB(const std::vector<double>& noweB);
+    void setOpoznienie(int noweOpoznienie);
+
+    std::vector<double> getWspA() const;
+    std::vector<double> getWspB() const;
+    int getOpoznienie() const;
 };

@@ -20,6 +20,17 @@ private:
     int czasAktywacji;
 
 public:
-    Generator(TypSygnalu typ, double amplituda, double okres = 1.0, double wypelnienie = 0.5, int czasAktywacji = 0);
+    Generator(TypSygnalu typ, double amplituda, double okres, double wypelnienie, int czasAktywacji);
     double generuj(int krok);
+
+    // Setery i getery
+    void setAmplituda(double nowaAmplituda);
+    void setOkres(double nowyOkres);
+    void setWypelnienie(double noweWypelnienie);
+    void setTypSygnalu(TypSygnalu nowyTyp);
+
+    double getAmplituda() const;
+    double getOkres() const;
+    double getWypelnienie() const;
+    TypSygnalu getTypSygnalu() const;
 };
