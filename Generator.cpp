@@ -17,34 +17,11 @@ double Generator::generuj(int krok) {
     }
 }
 
-void Generator::setAmplituda(double nowaAmplituda) {
-    amplituda = nowaAmplituda;
-}
-
-void Generator::setOkres(double nowyOkres) {
-    okres = nowyOkres;
-}
-
-void Generator::setWypelnienie(double noweWypelnienie) {
-    wypelnienie = noweWypelnienie;
-}
-
-void Generator::setTypSygnalu(TypSygnalu nowyTyp) {
-    typ = nowyTyp;
-}
-
-double Generator::getAmplituda() const {
-    return amplituda;
-}
-
-double Generator::getOkres() const {
-    return okres;
-}
-
-double Generator::getWypelnienie() const {
-    return wypelnienie;
-}
-
-TypSygnalu Generator::getTypSygnalu() const {
-    return typ;
-}
+void Generator::setAmplituda(double nowaAmplituda) { amplituda = nowaAmplituda; }
+void Generator::setOkres(double nowyOkres) { okres = nowyOkres; }
+void Generator::setWypelnienie(double noweWypelnienie) { wypelnienie = noweWypelnienie; }
+void Generator::setTypSygnalu(TypSygnalu nowyTyp) { typ = nowyTyp; }
+double Generator::getAmplituda() const { return amplituda; }
+double Generator::getOkres() const { return okres; }
+double Generator::getWypelnienie() const { return wypelnienie; }
+TypSygnalu Generator::getTypSygnalu() const { return typ; }

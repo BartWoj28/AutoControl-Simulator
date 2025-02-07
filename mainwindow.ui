@@ -53,6 +53,19 @@
          <bool>true</bool>
         </property>
         <property name="text">
+         <string>ZADAJ </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="wznowButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="text">
          <string>START</string>
         </property>
        </widget>
@@ -70,13 +83,6 @@
         </property>
         <property name="text">
          <string>STOP</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="wznowButton">
-        <property name="text">
-         <string>WZNÓW</string>
         </property>
        </widget>
       </item>
@@ -121,7 +127,7 @@
          <double>0.100000000000000</double>
         </property>
         <property name="value">
-         <double>0.000000000000000</double>
+         <double>1.000000000000000</double>
         </property>
        </widget>
       </item>
@@ -143,7 +149,7 @@
          <double>0.100000000000000</double>
         </property>
         <property name="value">
-         <double>0.000000000000000</double>
+         <double>10.000000000000000</double>
         </property>
        </widget>
       </item>
@@ -162,7 +168,7 @@
          <double>0.010000000000000</double>
         </property>
         <property name="value">
-         <double>0.000000000000000</double>
+         <double>0.500000000000000</double>
         </property>
        </widget>
       </item>
@@ -286,7 +292,7 @@
          <double>0.100000000000000</double>
         </property>
         <property name="value">
-         <double>0.100000000000000</double>
+         <double>5.000000000000000</double>
         </property>
        </widget>
       </item>
@@ -304,6 +310,9 @@
         <property name="singleStep">
          <double>0.100000000000000</double>
         </property>
+        <property name="value">
+         <double>0.500000000000000</double>
+        </property>
        </widget>
       </item>
       <item row="1" column="3">
@@ -319,6 +328,9 @@
         </property>
         <property name="singleStep">
          <double>0.100000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.200000000000000</double>
         </property>
        </widget>
       </item>
@@ -447,6 +459,9 @@
         <property name="singleStep">
          <double>0.100000000000000</double>
         </property>
+        <property name="value">
+         <double>-0.400000000000000</double>
+        </property>
        </widget>
       </item>
       <item row="1" column="2">
@@ -504,6 +519,9 @@
         </property>
         <property name="singleStep">
          <double>0.100000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.600000000000000</double>
         </property>
        </widget>
       </item>

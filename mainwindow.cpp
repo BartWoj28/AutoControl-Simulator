@@ -29,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->spinBoxAmplituda, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &MainWindow::on_spinBoxAmplituda_valueChanged);
     connect(ui->spinBoxOkres, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &MainWindow::on_spinBoxOkres_valueChanged);
 
-
     chart = new QChart();
     series = new QLineSeries();
     series->setName("Wartość regulowana");
@@ -128,12 +127,12 @@ void MainWindow::on_startButton_clicked()
     double amplituda = ui->spinBoxAmplituda->value();
     double okres = ui->spinBoxOkres->value();
     double wypelnienie = ui->spinBoxWypelnienie->value();
-    int czasAktywacji = ui->spinBoxCzas->value();
+    int opoznienie = ui->spinBoxCzas->value();
     if (ti == 0.0) {
         ti = 0.1;
     }
-    uklad = new UkladRegulacji(wspA, wspB,1, k, ti, td, typSygnalu, amplituda, okres, wypelnienie, czasAktywacji);
-    timer->start(100);
+    uklad = new UkladRegulacji(wspA, wspB,opoznienie, k, ti, td, typSygnalu, amplituda, okres, wypelnienie);
+    ui->startButton->hide();
 }
 
 void MainWindow::on_wznowButton_clicked()
@@ -146,22 +145,18 @@ void MainWindow::updateSimulation()
     if (uklad) {
         double wartoscZadana = uklad->getGenerator().generuj(krok);
         double wynik = uklad->symuluj(krok);
-
         double uchyb = wartoscZadana - wynik;
         double wyjP = uklad->getRegulator().getWyjP();
         double wyjI = uklad->getRegulator().getWyjI();
         double wyjD = uklad->getRegulator().getWyjD();
 
-        // Dodanie nowych punktów do wykresów
         series->append(krok, wynik);
         seriesSetpoint->append(krok, wartoscZadana);
-
         seriesP->append(krok, wyjP);
         seriesI->append(krok, wyjI);
         seriesD->append(krok, wyjD);
         seriesUchyb->append(krok, uchyb);
 
-        // Przesuwanie osi X co 100 kroków
         int windowSize = 100;
         int startX = (krok / windowSize) * windowSize;
         int endX = startX + windowSize;
@@ -170,7 +165,6 @@ void MainWindow::updateSimulation()
         axisXPID->setRange(startX, endX);
         axisXUchyb->setRange(startX, endX);
 
-        // Funkcja pomocnicza do wyznaczenia zakresu Y
         auto calculateYRange = [](const QLineSeries* series) {
             int minY = std::numeric_limits<int>::max();
             int maxY = std::numeric_limits<int>::min();
@@ -181,46 +175,31 @@ void MainWindow::updateSimulation()
             return std::make_pair(minY, maxY);
         };
 
-        // Skalowanie osi Y dla wartości regulowanej i zadanej
         auto [minY, maxY] = calculateYRange(series);
         auto [minYSetpoint, maxYSetpoint] = calculateYRange(seriesSetpoint);
         minY = std::min(minY, minYSetpoint);
         maxY = std::max(maxY, maxYSetpoint);
-
-        // Upewnienie się, że zero jest widoczne
         minY = std::min(minY, 0);
         maxY = std::max(maxY, 0);
-
         axisY->setRange(minY - 1, maxY + 1);
-        axisY->setLabelFormat("%d");  // Liczby całkowite
-
-        // Skalowanie osi Y dla wykresu PID
+        axisY->setLabelFormat("%d");
         auto [minP, maxP] = calculateYRange(seriesP);
         auto [minI, maxI] = calculateYRange(seriesI);
         auto [minD, maxD] = calculateYRange(seriesD);
         int minPID = std::min({minP, minI, minD});
         int maxPID = std::max({maxP, maxI, maxD});
-
-        minPID = std::min(minPID, 0);  // Upewnij się, że zero jest widoczne
+        minPID = std::min(minPID, 0);
         maxPID = std::max(maxPID, 0);
-
         axisYPID->setRange(minPID - 1, maxPID + 1);
-        axisYPID->setLabelFormat("%d");  // Liczby całkowite
-
-        // Skalowanie osi Y dla wykresu uchybu
+        axisYPID->setLabelFormat("%d");
         auto [minUchyb, maxUchyb] = calculateYRange(seriesUchyb);
-
         minUchyb = std::min(minUchyb, 0);
         maxUchyb = std::max(maxUchyb, 0);
-
         axisYUchyb->setRange(minUchyb - 1, maxUchyb + 1);
-        axisYUchyb->setLabelFormat("%d");  // Liczby całkowite
-
+        axisYUchyb->setLabelFormat("%d");
         krok++;
     }
 }
-
-
 
 void MainWindow::on_stopButton_clicked()
 {
@@ -261,8 +240,8 @@ void MainWindow::on_resetButton_clicked()
     ui->spinBoxWypelnienie->setValue(0.5);
     ui->spinBoxCzas->setValue(1);
     ui->signalTypeComboBox->setCurrentIndex(0);
+    ui->startButton->show();
 }
-
 void MainWindow::on_signalTypeComboBox_currentIndexChanged(int index)
 {
     switch (index) {
@@ -275,8 +254,6 @@ void MainWindow::on_signalTypeComboBox_currentIndexChanged(int index)
         uklad->getGenerator().setTypSygnalu(typSygnalu);
     }
 }
-
-// Dynamiczne aktualizacje parametrów
 void MainWindow::on_spinBoxA1_valueChanged(double value) {
     if (uklad) {
         auto wspA = uklad->getModel().getWspA();
@@ -284,7 +261,6 @@ void MainWindow::on_spinBoxA1_valueChanged(double value) {
         uklad->getModel().setWspA(wspA);
     }
 }
-
 void MainWindow::on_spinBoxA2_valueChanged(double value) {
     if (uklad) {
         auto wspA = uklad->getModel().getWspA();
@@ -292,7 +268,6 @@ void MainWindow::on_spinBoxA2_valueChanged(double value) {
         uklad->getModel().setWspA(wspA);
     }
 }
-
 void MainWindow::on_spinBoxA3_valueChanged(double value) {
     if (uklad) {
         auto wspA = uklad->getModel().getWspA();
@@ -300,7 +275,6 @@ void MainWindow::on_spinBoxA3_valueChanged(double value) {
         uklad->getModel().setWspA(wspA);
     }
 }
-
 void MainWindow::on_spinBoxB1_valueChanged(double value) {
     if (uklad) {
         auto wspB = uklad->getModel().getWspB();
@@ -308,7 +282,6 @@ void MainWindow::on_spinBoxB1_valueChanged(double value) {
         uklad->getModel().setWspB(wspB);
     }
 }
-
 void MainWindow::on_spinBoxB2_valueChanged(double value) {
     if (uklad) {
         auto wspB = uklad->getModel().getWspB();
@@ -316,7 +289,6 @@ void MainWindow::on_spinBoxB2_valueChanged(double value) {
         uklad->getModel().setWspB(wspB);
     }
 }
-
 void MainWindow::on_spinBoxB3_valueChanged(double value) {
     if (uklad) {
         auto wspB = uklad->getModel().getWspB();
@@ -324,37 +296,31 @@ void MainWindow::on_spinBoxB3_valueChanged(double value) {
         uklad->getModel().setWspB(wspB);
     }
 }
-
 void MainWindow::on_spinBoxK_valueChanged(double value) {
     if (uklad) {
         uklad->getRegulator().setK(value);
     }
 }
-
 void MainWindow::on_spinBoxTi_valueChanged(double value) {
     if (uklad) {
         uklad->getRegulator().setTi(value);
     }
 }
-
 void MainWindow::on_spinBoxTd_valueChanged(double value) {
     if (uklad) {
         uklad->getRegulator().setTd(value);
     }
 }
-
 void MainWindow::on_spinBoxAmplituda_valueChanged(double value) {
     if (uklad) {
         uklad->getGenerator().setAmplituda(value);
     }
 }
-
 void MainWindow::on_spinBoxOkres_valueChanged(double value) {
     if (uklad) {
         uklad->getGenerator().setOkres(value);
     }
 }
-
 void MainWindow::on_spinBoxWypelnienie_valueChanged(double value) {
     if (uklad) {
         uklad->getGenerator().setWypelnienie(value);

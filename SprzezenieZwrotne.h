@@ -9,11 +9,9 @@ private:
     ModelARX* model;
     RegulatorPID* regulator;
     Generator* generator;
-
-    double poprzedniaWartosc; // Dodane do przechowywania wartości z poprzedniego kroku
-
+    double poprzedniaWartosc;
 public:
     SprzezenieZwrotne(ModelARX* model, RegulatorPID* regulator, Generator* generator);
     double symuluj(int krok);
-    void reset(); // Resetowanie wartości początkowej
+    void reset();
 };

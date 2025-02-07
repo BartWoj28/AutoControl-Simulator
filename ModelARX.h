@@ -13,13 +13,12 @@ private:
     std::deque<double> bufforWej;
     std::default_random_engine generator;
     std::normal_distribution<double> zaklocenie;
-
 public:
     ModelARX(std::vector<double> wspA, std::vector<double> wspB, int opoznienie = 0);
-    double symuluj(double wejscie);
     ~ModelARX();
 
-    // Setery i getery
+    double symuluj(double wejscie);
+
     void setWspA(const std::vector<double>& noweA);
     void setWspB(const std::vector<double>& noweB);
     void setOpoznienie(int noweOpoznienie);

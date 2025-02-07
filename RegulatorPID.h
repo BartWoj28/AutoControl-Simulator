@@ -8,15 +8,15 @@ private:
     double wyj_p;
     double wyj_i;
     double wyj_d;
-
 public:
     RegulatorPID(double k, double ti, double td);
+    ~RegulatorPID();
+
     double symuluj(double blad);
     double symulujProporcjonalny(double blad);
     double symulujCalkujacy(double blad);
     double symulujRozniczkujacy(double blad);
 
-    // Setery i getery
     void setK(double noweK);
     void setTi(double noweTi);
     void setTd(double noweTd);
@@ -24,7 +24,6 @@ public:
     double getK() const;
     double getTi() const;
     double getTd() const;
-
     double getWyjP() const;
     double getWyjI() const;
     double getWyjD() const;
