@@ -59,11 +59,19 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "loadConfiguration",
     "on_pushButtonARX_clicked",
     "on_pushButtonResetCalka_clicked",
-    "on_comboBoxSposobCalkowania_currentIndexChanged"
+    "on_comboBoxSposobCalkowania_currentIndexChanged",
+    "on_btnRozlacz_clicked",
+    "on_btnPolaczenie_clicked",
+    "slot_clientConnected",
+    "adr",
+    "slot_clientDisconnected",
+    "slot_connected",
+    "port",
+    "slot_disconnected"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[42];
+    uint offsetsAndSizes[58];
     char stringdata0[11];
     char stringdata1[23];
     char stringdata2[1];
@@ -85,6 +93,14 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata18[25];
     char stringdata19[32];
     char stringdata20[48];
+    char stringdata21[22];
+    char stringdata22[25];
+    char stringdata23[21];
+    char stringdata24[4];
+    char stringdata25[24];
+    char stringdata26[15];
+    char stringdata27[5];
+    char stringdata28[18];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -110,7 +126,15 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(416, 17),  // "loadConfiguration"
         QT_MOC_LITERAL(434, 24),  // "on_pushButtonARX_clicked"
         QT_MOC_LITERAL(459, 31),  // "on_pushButtonResetCalka_clicked"
-        QT_MOC_LITERAL(491, 47)   // "on_comboBoxSposobCalkowania_c..."
+        QT_MOC_LITERAL(491, 47),  // "on_comboBoxSposobCalkowania_c..."
+        QT_MOC_LITERAL(539, 21),  // "on_btnRozlacz_clicked"
+        QT_MOC_LITERAL(561, 24),  // "on_btnPolaczenie_clicked"
+        QT_MOC_LITERAL(586, 20),  // "slot_clientConnected"
+        QT_MOC_LITERAL(607, 3),  // "adr"
+        QT_MOC_LITERAL(611, 23),  // "slot_clientDisconnected"
+        QT_MOC_LITERAL(635, 14),  // "slot_connected"
+        QT_MOC_LITERAL(650, 4),  // "port"
+        QT_MOC_LITERAL(655, 17)   // "slot_disconnected"
     },
     "MainWindow",
     "on_startButton_clicked",
@@ -132,7 +156,15 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "loadConfiguration",
     "on_pushButtonARX_clicked",
     "on_pushButtonResetCalka_clicked",
-    "on_comboBoxSposobCalkowania_currentIndexChanged"
+    "on_comboBoxSposobCalkowania_currentIndexChanged",
+    "on_btnRozlacz_clicked",
+    "on_btnPolaczenie_clicked",
+    "slot_clientConnected",
+    "adr",
+    "slot_clientDisconnected",
+    "slot_connected",
+    "port",
+    "slot_disconnected"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -144,7 +176,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      24,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -152,24 +184,30 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  122,    2, 0x08,    1 /* Private */,
-       3,    0,  123,    2, 0x08,    2 /* Private */,
-       4,    0,  124,    2, 0x08,    3 /* Private */,
-       5,    0,  125,    2, 0x08,    4 /* Private */,
-       6,    1,  126,    2, 0x08,    5 /* Private */,
-       8,    0,  129,    2, 0x08,    7 /* Private */,
-       9,    0,  130,    2, 0x08,    8 /* Private */,
-      10,    0,  131,    2, 0x08,    9 /* Private */,
-      11,    0,  132,    2, 0x08,   10 /* Private */,
-      12,    0,  133,    2, 0x08,   11 /* Private */,
-      13,    0,  134,    2, 0x08,   12 /* Private */,
-      14,    0,  135,    2, 0x08,   13 /* Private */,
-      15,    0,  136,    2, 0x08,   14 /* Private */,
-      16,    0,  137,    2, 0x08,   15 /* Private */,
-      17,    0,  138,    2, 0x08,   16 /* Private */,
-      18,    0,  139,    2, 0x08,   17 /* Private */,
-      19,    0,  140,    2, 0x08,   18 /* Private */,
-      20,    1,  141,    2, 0x08,   19 /* Private */,
+       1,    0,  158,    2, 0x08,    1 /* Private */,
+       3,    0,  159,    2, 0x08,    2 /* Private */,
+       4,    0,  160,    2, 0x08,    3 /* Private */,
+       5,    0,  161,    2, 0x08,    4 /* Private */,
+       6,    1,  162,    2, 0x08,    5 /* Private */,
+       8,    0,  165,    2, 0x08,    7 /* Private */,
+       9,    0,  166,    2, 0x08,    8 /* Private */,
+      10,    0,  167,    2, 0x08,    9 /* Private */,
+      11,    0,  168,    2, 0x08,   10 /* Private */,
+      12,    0,  169,    2, 0x08,   11 /* Private */,
+      13,    0,  170,    2, 0x08,   12 /* Private */,
+      14,    0,  171,    2, 0x08,   13 /* Private */,
+      15,    0,  172,    2, 0x08,   14 /* Private */,
+      16,    0,  173,    2, 0x08,   15 /* Private */,
+      17,    0,  174,    2, 0x08,   16 /* Private */,
+      18,    0,  175,    2, 0x08,   17 /* Private */,
+      19,    0,  176,    2, 0x08,   18 /* Private */,
+      20,    1,  177,    2, 0x08,   19 /* Private */,
+      21,    0,  180,    2, 0x08,   21 /* Private */,
+      22,    0,  181,    2, 0x08,   22 /* Private */,
+      23,    1,  182,    2, 0x08,   23 /* Private */,
+      25,    0,  185,    2, 0x08,   25 /* Private */,
+      26,    2,  186,    2, 0x08,   26 /* Private */,
+      28,    0,  191,    2, 0x08,   29 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -190,6 +228,12 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   24,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int,   24,   27,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -240,7 +284,22 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_comboBoxSposobCalkowania_currentIndexChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_btnRozlacz_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_btnPolaczenie_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'slot_clientConnected'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'slot_clientDisconnected'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'slot_connected'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'slot_disconnected'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -269,6 +328,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 15: _t->on_pushButtonARX_clicked(); break;
         case 16: _t->on_pushButtonResetCalka_clicked(); break;
         case 17: _t->on_comboBoxSposobCalkowania_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 18: _t->on_btnRozlacz_clicked(); break;
+        case 19: _t->on_btnPolaczenie_clicked(); break;
+        case 20: _t->slot_clientConnected((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 21: _t->slot_clientDisconnected(); break;
+        case 22: _t->slot_connected((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 23: _t->slot_disconnected(); break;
         default: ;
         }
     }
@@ -293,13 +358,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 24;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 24)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 18;
+        _id -= 24;
     }
     return _id;
 }

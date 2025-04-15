@@ -31,6 +31,7 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout_2;
     QLabel *label_5;
     QLabel *label_6;
@@ -38,20 +39,12 @@ public:
     QDoubleSpinBox *spinBoxK;
     QDoubleSpinBox *spinBoxTd;
     QLabel *label_7;
-    QGridLayout *gridLayout_5;
-    QSpinBox *spinBoxInterwal;
-    QComboBox *signalTypeComboBox;
-    QLabel *label_14;
-    QVBoxLayout *verticalLayout_2;
-    QPushButton *saveButton;
-    QPushButton *loadButton;
     QVBoxLayout *verticalLayoutPID;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *startButton;
-    QPushButton *wznowButton;
-    QPushButton *stopButton;
-    QPushButton *resetButton;
+    QVBoxLayout *verticalLayoutUchyb;
+    QHBoxLayout *horizontalLayout_2;
+    QPushButton *pushButtonARX;
+    QComboBox *comboBoxSposobCalkowania;
+    QPushButton *pushButtonResetCalka;
     QGridLayout *gridLayout_3;
     QDoubleSpinBox *spinBoxAmplituda;
     QLabel *label_8;
@@ -59,11 +52,22 @@ public:
     QDoubleSpinBox *spinBoxWypelnienie;
     QDoubleSpinBox *spinBoxOkres;
     QLabel *label_9;
-    QHBoxLayout *horizontalLayout_2;
-    QPushButton *pushButtonARX;
-    QComboBox *comboBoxSposobCalkowania;
-    QPushButton *pushButtonResetCalka;
-    QVBoxLayout *verticalLayoutUchyb;
+    QGridLayout *gridLayout_5;
+    QSpinBox *spinBoxInterwal;
+    QComboBox *signalTypeComboBox;
+    QLabel *label_14;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *saveButton;
+    QPushButton *loadButton;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *startButton;
+    QPushButton *wznowButton;
+    QPushButton *stopButton;
+    QPushButton *resetButton;
+    QHBoxLayout *horizontalLayout_3;
+    QPushButton *btnPolaczenie;
+    QPushButton *btnRozlacz;
+    QLabel *lblStatus;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -84,6 +88,12 @@ public:
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName("gridLayout");
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+
+        gridLayout->addLayout(verticalLayout, 0, 2, 3, 2);
+
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName("gridLayout_2");
         label_5 = new QLabel(centralwidget);
@@ -149,96 +159,40 @@ public:
 
         gridLayout->addLayout(gridLayout_2, 3, 0, 1, 1);
 
-        gridLayout_5 = new QGridLayout();
-        gridLayout_5->setObjectName("gridLayout_5");
-        gridLayout_5->setSizeConstraint(QLayout::SetMinimumSize);
-        spinBoxInterwal = new QSpinBox(centralwidget);
-        spinBoxInterwal->setObjectName("spinBoxInterwal");
-        spinBoxInterwal->setMinimumSize(QSize(0, 60));
-        spinBoxInterwal->setAutoFillBackground(true);
-        spinBoxInterwal->setMinimum(50);
-        spinBoxInterwal->setMaximum(1000);
-        spinBoxInterwal->setValue(200);
-
-        gridLayout_5->addWidget(spinBoxInterwal, 0, 2, 1, 1);
-
-        signalTypeComboBox = new QComboBox(centralwidget);
-        signalTypeComboBox->setObjectName("signalTypeComboBox");
-        signalTypeComboBox->setMinimumSize(QSize(0, 60));
-        signalTypeComboBox->setAutoFillBackground(true);
-
-        gridLayout_5->addWidget(signalTypeComboBox, 0, 0, 1, 1);
-
-        label_14 = new QLabel(centralwidget);
-        label_14->setObjectName("label_14");
-        label_14->setMinimumSize(QSize(0, 60));
-        label_14->setLayoutDirection(Qt::RightToLeft);
-        label_14->setAutoFillBackground(true);
-        label_14->setAlignment(Qt::AlignCenter);
-
-        gridLayout_5->addWidget(label_14, 0, 1, 1, 1);
-
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName("verticalLayout_2");
-        saveButton = new QPushButton(centralwidget);
-        saveButton->setObjectName("saveButton");
-
-        verticalLayout_2->addWidget(saveButton);
-
-        loadButton = new QPushButton(centralwidget);
-        loadButton->setObjectName("loadButton");
-
-        verticalLayout_2->addWidget(loadButton);
-
-
-        gridLayout_5->addLayout(verticalLayout_2, 0, 3, 1, 1);
-
-
-        gridLayout->addLayout(gridLayout_5, 1, 0, 1, 1);
-
         verticalLayoutPID = new QVBoxLayout();
         verticalLayoutPID->setObjectName("verticalLayoutPID");
 
-        gridLayout->addLayout(verticalLayoutPID, 3, 2, 2, 1);
+        gridLayout->addLayout(verticalLayoutPID, 3, 2, 3, 1);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+        verticalLayoutUchyb = new QVBoxLayout();
+        verticalLayoutUchyb->setObjectName("verticalLayoutUchyb");
 
-        gridLayout->addLayout(verticalLayout, 0, 2, 3, 2);
+        gridLayout->addLayout(verticalLayoutUchyb, 3, 3, 3, 1);
 
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName("horizontalLayout");
-        startButton = new QPushButton(centralwidget);
-        startButton->setObjectName("startButton");
-        startButton->setMinimumSize(QSize(0, 100));
-        startButton->setAutoFillBackground(true);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        pushButtonARX = new QPushButton(centralwidget);
+        pushButtonARX->setObjectName("pushButtonARX");
+        pushButtonARX->setMinimumSize(QSize(0, 80));
 
-        horizontalLayout->addWidget(startButton);
+        horizontalLayout_2->addWidget(pushButtonARX);
 
-        wznowButton = new QPushButton(centralwidget);
-        wznowButton->setObjectName("wznowButton");
-        wznowButton->setMinimumSize(QSize(0, 100));
-        wznowButton->setAutoFillBackground(true);
+        comboBoxSposobCalkowania = new QComboBox(centralwidget);
+        comboBoxSposobCalkowania->addItem(QString());
+        comboBoxSposobCalkowania->addItem(QString());
+        comboBoxSposobCalkowania->setObjectName("comboBoxSposobCalkowania");
+        comboBoxSposobCalkowania->setMinimumSize(QSize(0, 80));
 
-        horizontalLayout->addWidget(wznowButton);
+        horizontalLayout_2->addWidget(comboBoxSposobCalkowania);
 
-        stopButton = new QPushButton(centralwidget);
-        stopButton->setObjectName("stopButton");
-        stopButton->setMinimumSize(QSize(0, 100));
-        stopButton->setAutoFillBackground(true);
+        pushButtonResetCalka = new QPushButton(centralwidget);
+        pushButtonResetCalka->setObjectName("pushButtonResetCalka");
+        pushButtonResetCalka->setMinimumSize(QSize(0, 80));
 
-        horizontalLayout->addWidget(stopButton);
-
-        resetButton = new QPushButton(centralwidget);
-        resetButton->setObjectName("resetButton");
-        resetButton->setMinimumSize(QSize(0, 100));
-        resetButton->setAutoFillBackground(true);
-
-        horizontalLayout->addWidget(resetButton);
+        horizontalLayout_2->addWidget(pushButtonResetCalka);
 
 
-        gridLayout->addLayout(horizontalLayout, 4, 0, 1, 1);
+        gridLayout->addLayout(horizontalLayout_2, 2, 0, 1, 1);
 
         gridLayout_3 = new QGridLayout();
         gridLayout_3->setObjectName("gridLayout_3");
@@ -305,35 +259,106 @@ public:
 
         gridLayout->addLayout(gridLayout_3, 0, 0, 1, 1);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
-        pushButtonARX = new QPushButton(centralwidget);
-        pushButtonARX->setObjectName("pushButtonARX");
-        pushButtonARX->setMinimumSize(QSize(0, 80));
+        gridLayout_5 = new QGridLayout();
+        gridLayout_5->setObjectName("gridLayout_5");
+        gridLayout_5->setSizeConstraint(QLayout::SetMinimumSize);
+        spinBoxInterwal = new QSpinBox(centralwidget);
+        spinBoxInterwal->setObjectName("spinBoxInterwal");
+        spinBoxInterwal->setMinimumSize(QSize(0, 60));
+        spinBoxInterwal->setAutoFillBackground(true);
+        spinBoxInterwal->setMinimum(50);
+        spinBoxInterwal->setMaximum(1000);
+        spinBoxInterwal->setValue(200);
 
-        horizontalLayout_2->addWidget(pushButtonARX);
+        gridLayout_5->addWidget(spinBoxInterwal, 0, 2, 1, 1);
 
-        comboBoxSposobCalkowania = new QComboBox(centralwidget);
-        comboBoxSposobCalkowania->addItem(QString());
-        comboBoxSposobCalkowania->addItem(QString());
-        comboBoxSposobCalkowania->setObjectName("comboBoxSposobCalkowania");
-        comboBoxSposobCalkowania->setMinimumSize(QSize(0, 80));
+        signalTypeComboBox = new QComboBox(centralwidget);
+        signalTypeComboBox->setObjectName("signalTypeComboBox");
+        signalTypeComboBox->setMinimumSize(QSize(0, 60));
+        signalTypeComboBox->setAutoFillBackground(true);
 
-        horizontalLayout_2->addWidget(comboBoxSposobCalkowania);
+        gridLayout_5->addWidget(signalTypeComboBox, 0, 0, 1, 1);
 
-        pushButtonResetCalka = new QPushButton(centralwidget);
-        pushButtonResetCalka->setObjectName("pushButtonResetCalka");
-        pushButtonResetCalka->setMinimumSize(QSize(0, 80));
+        label_14 = new QLabel(centralwidget);
+        label_14->setObjectName("label_14");
+        label_14->setMinimumSize(QSize(0, 60));
+        label_14->setLayoutDirection(Qt::RightToLeft);
+        label_14->setAutoFillBackground(true);
+        label_14->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_2->addWidget(pushButtonResetCalka);
+        gridLayout_5->addWidget(label_14, 0, 1, 1, 1);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        saveButton = new QPushButton(centralwidget);
+        saveButton->setObjectName("saveButton");
+
+        verticalLayout_2->addWidget(saveButton);
+
+        loadButton = new QPushButton(centralwidget);
+        loadButton->setObjectName("loadButton");
+
+        verticalLayout_2->addWidget(loadButton);
 
 
-        gridLayout->addLayout(horizontalLayout_2, 2, 0, 1, 1);
+        gridLayout_5->addLayout(verticalLayout_2, 0, 3, 1, 1);
 
-        verticalLayoutUchyb = new QVBoxLayout();
-        verticalLayoutUchyb->setObjectName("verticalLayoutUchyb");
 
-        gridLayout->addLayout(verticalLayoutUchyb, 3, 3, 2, 1);
+        gridLayout->addLayout(gridLayout_5, 1, 0, 1, 1);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        startButton = new QPushButton(centralwidget);
+        startButton->setObjectName("startButton");
+        startButton->setMinimumSize(QSize(0, 100));
+        startButton->setAutoFillBackground(true);
+
+        horizontalLayout->addWidget(startButton);
+
+        wznowButton = new QPushButton(centralwidget);
+        wznowButton->setObjectName("wznowButton");
+        wznowButton->setMinimumSize(QSize(0, 100));
+        wznowButton->setAutoFillBackground(true);
+
+        horizontalLayout->addWidget(wznowButton);
+
+        stopButton = new QPushButton(centralwidget);
+        stopButton->setObjectName("stopButton");
+        stopButton->setMinimumSize(QSize(0, 100));
+        stopButton->setAutoFillBackground(true);
+
+        horizontalLayout->addWidget(stopButton);
+
+        resetButton = new QPushButton(centralwidget);
+        resetButton->setObjectName("resetButton");
+        resetButton->setMinimumSize(QSize(0, 100));
+        resetButton->setAutoFillBackground(true);
+
+        horizontalLayout->addWidget(resetButton);
+
+
+        gridLayout->addLayout(horizontalLayout, 4, 0, 1, 1);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        btnPolaczenie = new QPushButton(centralwidget);
+        btnPolaczenie->setObjectName("btnPolaczenie");
+
+        horizontalLayout_3->addWidget(btnPolaczenie);
+
+        btnRozlacz = new QPushButton(centralwidget);
+        btnRozlacz->setObjectName("btnRozlacz");
+        btnRozlacz->setEnabled(false);
+
+        horizontalLayout_3->addWidget(btnRozlacz);
+
+        lblStatus = new QLabel(centralwidget);
+        lblStatus->setObjectName("lblStatus");
+
+        horizontalLayout_3->addWidget(lblStatus);
+
+
+        gridLayout->addLayout(horizontalLayout_3, 5, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -355,21 +380,24 @@ public:
         label_5->setText(QCoreApplication::translate("MainWindow", "k", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Ti", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "Td", nullptr));
+        pushButtonARX->setText(QCoreApplication::translate("MainWindow", "ARX", nullptr));
+        comboBoxSposobCalkowania->setItemText(0, QCoreApplication::translate("MainWindow", "Ti poza ca\305\202k\304\205", nullptr));
+        comboBoxSposobCalkowania->setItemText(1, QCoreApplication::translate("MainWindow", "Ti pod ca\305\202k\304\205", nullptr));
+
+        pushButtonResetCalka->setText(QCoreApplication::translate("MainWindow", "Resetuj cz\304\231\305\233\304\207 ca\305\202kuj\304\205c\304\205", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "AMPLITUDA", nullptr));
+        label_10->setText(QCoreApplication::translate("MainWindow", "WYPELNIENIE", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "OKRES", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindow", "INTERWA\305\201", nullptr));
         saveButton->setText(QCoreApplication::translate("MainWindow", "ZAPISZ", nullptr));
         loadButton->setText(QCoreApplication::translate("MainWindow", "WGRAJ", nullptr));
         startButton->setText(QCoreApplication::translate("MainWindow", "ZADAJ ", nullptr));
         wznowButton->setText(QCoreApplication::translate("MainWindow", "START", nullptr));
         stopButton->setText(QCoreApplication::translate("MainWindow", "STOP", nullptr));
-        resetButton->setText(QCoreApplication::translate("MainWindow", "reset", nullptr));
-        label_8->setText(QCoreApplication::translate("MainWindow", "AMPLITUDA", nullptr));
-        label_10->setText(QCoreApplication::translate("MainWindow", "WYPELNIENIE", nullptr));
-        label_9->setText(QCoreApplication::translate("MainWindow", "OKRES", nullptr));
-        pushButtonARX->setText(QCoreApplication::translate("MainWindow", "ARX", nullptr));
-        comboBoxSposobCalkowania->setItemText(0, QCoreApplication::translate("MainWindow", "Ti poza ca\305\202k\304\205", nullptr));
-        comboBoxSposobCalkowania->setItemText(1, QCoreApplication::translate("MainWindow", "Ti pod ca\305\202k\304\205", nullptr));
-
-        pushButtonResetCalka->setText(QCoreApplication::translate("MainWindow", "Resetuj cz\304\231\305\233\304\207 ca\305\202kuj\304\205c\304\205", nullptr));
+        resetButton->setText(QCoreApplication::translate("MainWindow", "RESET", nullptr));
+        btnPolaczenie->setText(QCoreApplication::translate("MainWindow", "Po\305\202\304\205czenie", nullptr));
+        btnRozlacz->setText(QCoreApplication::translate("MainWindow", "Roz\305\202\304\205cz", nullptr));
+        lblStatus->setText(QCoreApplication::translate("MainWindow", "Tryb lokalny", nullptr));
     } // retranslateUi
 
 };

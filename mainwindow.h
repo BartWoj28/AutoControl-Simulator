@@ -13,6 +13,11 @@
 #include <QFileDialog>
 #include "ModelDialog.h"
 #include "ui_mainwindow.h"
+#include <QTcpSocket>
+#include <QTcpServer>
+#include "dialogconnection.h"
+#include "tcpserver.h"
+#include "tcpclient.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -46,7 +51,19 @@ private slots:
     void on_comboBoxSposobCalkowania_currentIndexChanged(int index);
 
 
-private:
+
+      void on_btnRozlacz_clicked();
+       void on_btnPolaczenie_clicked();
+
+       void slot_clientConnected(QString adr);
+       void slot_clientDisconnected();
+
+      void slot_connected(QString adr, int port);
+      void slot_disconnected();
+
+
+
+   private:
     int krok = 0;
     Ui::MainWindow *ui;
     UkladRegulacji *uklad;
@@ -81,5 +98,19 @@ private:
     QLineSeries *seriesUchyb;
     QValueAxis *axisXUchyb;
     QValueAxis *axisYUchyb;
+
+
+    bool networking=false;
+
+    TCPClient* m_klient=nullptr;
+    TCPServer* m_serwer=nullptr;
+    DialogConnection* dialogPolacz;
+
+    void ResetKlient();
+    void ResetSerwer();
+ signals:
+
+
+
 };
 #endif // MAINWINDOW_H

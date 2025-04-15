@@ -205,6 +205,7 @@ Makefile: uar.pro C:\Qt\6.5.3\msvc2019_64\mkspecs\win32-msvc\qmake.conf C:\Qt\6.
 		C:\Qt\6.5.3\msvc2019_64\mkspecs\features\qt_config.prf \
 		C:\Qt\6.5.3\msvc2019_64\mkspecs\win32-msvc\qmake.conf \
 		C:\Qt\6.5.3\msvc2019_64\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		C:\Qt\6.5.3\msvc2019_64\mkspecs\features\exclusive_builds.prf \
 		C:\Qt\6.5.3\msvc2019_64\mkspecs\common\msvc-version.conf \
 		C:\Qt\6.5.3\msvc2019_64\mkspecs\features\toolchain.prf \
@@ -236,15 +237,16 @@ Makefile: uar.pro C:\Qt\6.5.3\msvc2019_64\mkspecs\win32-msvc\qmake.conf C:\Qt\6.
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6Widgets.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6OpenGL.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6Gui.prl \
+		C:\Qt\6.5.3\msvc2019_64\lib\Qt6Network.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6Core.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6EntryPoint.prl \
-		.qmake.stash \
 		C:\Qt\6.5.3\msvc2019_64\mkspecs\features\build_pass.prf \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6Chartsd.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6OpenGLWidgetsd.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6Widgetsd.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6OpenGLd.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6Guid.prl \
+		C:\Qt\6.5.3\msvc2019_64\lib\Qt6Networkd.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6Cored.prl \
 		C:\Qt\6.5.3\msvc2019_64\lib\Qt6EntryPointd.prl
 	$(QMAKE) -o Makefile uar.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -369,6 +371,7 @@ C:\Qt\6.5.3\msvc2019_64\mkspecs\features\qt_functions.prf:
 C:\Qt\6.5.3\msvc2019_64\mkspecs\features\qt_config.prf:
 C:\Qt\6.5.3\msvc2019_64\mkspecs\win32-msvc\qmake.conf:
 C:\Qt\6.5.3\msvc2019_64\mkspecs\features\spec_post.prf:
+.qmake.stash:
 C:\Qt\6.5.3\msvc2019_64\mkspecs\features\exclusive_builds.prf:
 C:\Qt\6.5.3\msvc2019_64\mkspecs\common\msvc-version.conf:
 C:\Qt\6.5.3\msvc2019_64\mkspecs\features\toolchain.prf:
@@ -400,15 +403,16 @@ C:\Qt\6.5.3\msvc2019_64\lib\Qt6OpenGLWidgets.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6Widgets.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6OpenGL.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6Gui.prl:
+C:\Qt\6.5.3\msvc2019_64\lib\Qt6Network.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6Core.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6EntryPoint.prl:
-.qmake.stash:
 C:\Qt\6.5.3\msvc2019_64\mkspecs\features\build_pass.prf:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6Chartsd.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6OpenGLWidgetsd.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6Widgetsd.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6OpenGLd.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6Guid.prl:
+C:\Qt\6.5.3\msvc2019_64\lib\Qt6Networkd.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6Cored.prl:
 C:\Qt\6.5.3\msvc2019_64\lib\Qt6EntryPointd.prl:
 qmake: FORCE

@@ -39,6 +39,13 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="2" rowspan="3" colspan="2">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+     </layout>
+    </item>
     <item row="3" column="0">
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1">
@@ -163,161 +170,57 @@
       </item>
      </layout>
     </item>
-    <item row="1" column="0">
-     <layout class="QGridLayout" name="gridLayout_5">
-      <property name="sizeConstraint">
-       <enum>QLayout::SetMinimumSize</enum>
-      </property>
-      <item row="0" column="2">
-       <widget class="QSpinBox" name="spinBoxInterwal">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>60</height>
-         </size>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="minimum">
-         <number>50</number>
-        </property>
-        <property name="maximum">
-         <number>1000</number>
-        </property>
-        <property name="value">
-         <number>200</number>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QComboBox" name="signalTypeComboBox">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>60</height>
-         </size>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="label_14">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>60</height>
-         </size>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>INTERWAŁ</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QPushButton" name="saveButton">
-          <property name="text">
-           <string>ZAPISZ</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="loadButton">
-          <property name="text">
-           <string>WGRAJ</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-    <item row="3" column="2" rowspan="2">
+    <item row="3" column="2" rowspan="3">
      <layout class="QVBoxLayout" name="verticalLayoutPID"/>
     </item>
-    <item row="0" column="2" rowspan="3" colspan="2">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="sizeConstraint">
-       <enum>QLayout::SetDefaultConstraint</enum>
-      </property>
-     </layout>
+    <item row="3" column="3" rowspan="3">
+     <layout class="QVBoxLayout" name="verticalLayoutUchyb"/>
     </item>
-    <item row="4" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout">
+    <item row="2" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QPushButton" name="startButton">
+       <widget class="QPushButton" name="pushButtonARX">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>100</height>
+          <height>80</height>
          </size>
         </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
         <property name="text">
-         <string>ZADAJ </string>
+         <string>ARX</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="wznowButton">
+       <widget class="QComboBox" name="comboBoxSposobCalkowania">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>100</height>
+          <height>80</height>
          </size>
         </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>START</string>
-        </property>
+        <item>
+         <property name="text">
+          <string>Ti poza całką</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ti pod całką</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="stopButton">
+       <widget class="QPushButton" name="pushButtonResetCalka">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>100</height>
+          <height>80</height>
          </size>
         </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
         <property name="text">
-         <string>STOP</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="resetButton">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>reset</string>
+         <string>Resetuj część całkującą</string>
         </property>
        </widget>
       </item>
@@ -459,58 +362,183 @@
       </item>
      </layout>
     </item>
-    <item row="2" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QPushButton" name="pushButtonARX">
+    <item row="1" column="0">
+     <layout class="QGridLayout" name="gridLayout_5">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMinimumSize</enum>
+      </property>
+      <item row="0" column="2">
+       <widget class="QSpinBox" name="spinBoxInterwal">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>80</height>
+          <height>60</height>
          </size>
         </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="minimum">
+         <number>50</number>
+        </property>
+        <property name="maximum">
+         <number>1000</number>
+        </property>
+        <property name="value">
+         <number>200</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QComboBox" name="signalTypeComboBox">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label_14">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
         <property name="text">
-         <string>ARX</string>
+         <string>INTERWAŁ</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QPushButton" name="saveButton">
+          <property name="text">
+           <string>ZAPISZ</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="loadButton">
+          <property name="text">
+           <string>WGRAJ</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="startButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>ZADAJ </string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBoxSposobCalkowania">
+       <widget class="QPushButton" name="wznowButton">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>80</height>
+          <height>100</height>
          </size>
         </property>
-        <item>
-         <property name="text">
-          <string>Ti poza całką</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Ti pod całką</string>
-         </property>
-        </item>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>START</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButtonResetCalka">
+       <widget class="QPushButton" name="stopButton">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>80</height>
+          <height>100</height>
          </size>
         </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
         <property name="text">
-         <string>Resetuj część całkującą</string>
+         <string>STOP</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="resetButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>RESET</string>
         </property>
        </widget>
       </item>
      </layout>
     </item>
-    <item row="3" column="3" rowspan="2">
-     <layout class="QVBoxLayout" name="verticalLayoutUchyb"/>
+    <item row="5" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="btnPolaczenie">
+        <property name="text">
+         <string>Połączenie</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRozlacz">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Rozłącz</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblStatus">
+        <property name="text">
+         <string>Tryb lokalny</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

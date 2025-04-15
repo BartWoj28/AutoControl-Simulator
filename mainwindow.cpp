@@ -110,6 +110,15 @@ MainWindow::MainWindow(QWidget *parent)
     chartViewUchyb = new QChartView(chartUchyb);
     chartViewUchyb->setRenderHint(QPainter::Antialiasing);
     ui->verticalLayoutUchyb->addWidget(chartViewUchyb);
+
+
+    //connect(&socket_klient,SIGNAL(connected()),this,SLOT(slot_connected()));
+   // connect(&socket_klient,SIGNAL(disconnected()),this,SIGNAL(Disconnected()));
+
+   // connect(&m_server,SIGNAL(newConnection),this,SLOT(slot_connect_client()));
+
+connect(m_serwer,SIGNAL(newClientConnected(QString)), this,SLOT(slot_clientConnected(QString)));
+ connect(m_serwer,SIGNAL(clientDisconnetced()),this,SLOT(slot_clientDisconnected()));
 }
 
 MainWindow::~MainWindow() {
@@ -437,3 +446,100 @@ void MainWindow::loadConfiguration() {
 
 
 
+
+
+void MainWindow::on_btnRozlacz_clicked()
+{
+    if(m_klient!=nullptr) m_klient->Rozlacz();
+    if(m_serwer!=nullptr){
+        m_serwer->stopNasluch();
+        delete m_serwer;
+        ui->btnRozlacz->setEnabled(false);
+        ui->lblStatus->setText("Stop");
+    }
+
+
+
+
+}
+
+
+
+
+void MainWindow::on_btnPolaczenie_clicked()
+{
+    dialogPolacz= new DialogConnection;
+    dialogPolacz->exec();
+    if(dialogPolacz->czyPolacz){
+
+        if(dialogPolacz->czy_adres){
+            ResetKlient();
+            m_klient->Polacz(dialogPolacz->adres,dialogPolacz->port);
+
+        }
+        else {
+            ResetSerwer();
+            m_serwer->startNasluch(dialogPolacz->port);
+            if(m_serwer->czyNasluch())ui->lblStatus->setText("Serwer:"+QString::number(dialogPolacz->port));
+            ui->btnRozlacz->setEnabled(true);
+        }
+
+    }
+   // if(dialogPolacz->czy_adres)
+     delete dialogPolacz;
+}
+
+
+
+void MainWindow::ResetKlient(){
+if(m_klient != nullptr) {
+ m_klient->Rozlacz();
+ delete m_klient;
+}
+
+m_klient = new TCPClient(this);
+connect(m_klient,SIGNAL(connected(QString,int)),this,SLOT(slot_connected(QString,int)));
+connect(m_klient,SIGNAL(disconnected()),this,SLOT(slot_disconnected()));
+
+
+}
+
+void MainWindow::ResetSerwer(){
+if(m_serwer != nullptr) {
+ m_serwer->stopNasluch();
+delete m_serwer;
+ }
+ m_serwer = new TCPServer(this);
+ connect(m_serwer,SIGNAL(newClientConnected(QString)),this,SLOT(slot_clientConnected(QString)));
+ connect(m_serwer,SIGNAL(clientDisconnetced()),this,SLOT(slot_clientDisconnected()));
+
+}
+
+void MainWindow::slot_clientConnected(QString adr){
+
+    ui->lblStatus->setText("ARX:"+adr);
+    ui->pushButtonARX->setEnabled(false);
+}
+
+void MainWindow::slot_clientDisconnected()
+{
+    ui->lblStatus->setText("Rozłączono");
+    ui->pushButtonARX->setEnabled(true);
+}
+
+void MainWindow::slot_connected(QString adr, int port){
+
+    ui->lblStatus->setText("Host:"+adr+":"+QString::number(port));
+    ui->btnRozlacz->setEnabled(true);
+    ui->comboBoxSposobCalkowania->setEnabled(false);
+    ui->pushButtonResetCalka->setEnabled(false);
+    ui->spinBoxK->setEnabled(false);
+    ui->spinBoxTd->setEnabled(false);
+    ui->spinBoxTi->setDecimals(false);
+}
+
+void MainWindow::slot_disconnected(){
+
+    ui->lblStatus->setText("Rozłączono");
+    ui->btnRozlacz->setEnabled(false);
+}
