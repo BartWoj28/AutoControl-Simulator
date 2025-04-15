@@ -450,7 +450,7 @@ void MainWindow::loadConfiguration() {
 
 void MainWindow::on_btnRozlacz_clicked()
 {
-    if(m_klient!=nullptr) m_klient->Rozlacz();
+    if(m_klient!=nullptr) {m_klient->Rozlacz(); m_klient=nullptr;}
     if(m_serwer!=nullptr){
         m_serwer->stopNasluch();
         delete m_serwer;
@@ -458,8 +458,12 @@ void MainWindow::on_btnRozlacz_clicked()
         ui->lblStatus->setText("Stop");
     }
 
-
-
+    ui->comboBoxSposobCalkowania->setEnabled(true);
+    ui->pushButtonResetCalka->setEnabled(true);
+    ui->spinBoxK->setEnabled(true);
+    ui->spinBoxTd->setEnabled(true);
+    ui->spinBoxTi->setEnabled(true);
+    ui->pushButtonARX->setEnabled(true);
 
 }
 
@@ -510,8 +514,8 @@ if(m_serwer != nullptr) {
 delete m_serwer;
  }
  m_serwer = new TCPServer(this);
- connect(m_serwer,SIGNAL(newClientConnected(QString)),this,SLOT(slot_clientConnected(QString)));
- connect(m_serwer,SIGNAL(clientDisconnetced()),this,SLOT(slot_clientDisconnected()));
+ connect(m_serwer,SIGNAL(ClientConnected(QString)),this,SLOT(slot_clientConnected(QString)));
+ connect(m_serwer,SIGNAL(ClientDisconnected()),this,SLOT(slot_clientDisconnected()));
 
 }
 
@@ -535,11 +539,17 @@ void MainWindow::slot_connected(QString adr, int port){
     ui->pushButtonResetCalka->setEnabled(false);
     ui->spinBoxK->setEnabled(false);
     ui->spinBoxTd->setEnabled(false);
-    ui->spinBoxTi->setDecimals(false);
+    ui->spinBoxTi->setEnabled(false);
 }
 
 void MainWindow::slot_disconnected(){
 
     ui->lblStatus->setText("Rozłączono");
     ui->btnRozlacz->setEnabled(false);
+
+    ui->comboBoxSposobCalkowania->setEnabled(true);
+    ui->pushButtonResetCalka->setEnabled(true);
+    ui->spinBoxK->setEnabled(true);
+    ui->spinBoxTd->setEnabled(true);
+    ui->spinBoxTi->setEnabled(true);
 }

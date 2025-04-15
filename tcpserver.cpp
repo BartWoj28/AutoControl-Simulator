@@ -29,7 +29,6 @@ void TCPServer::slot_connect_client()
     auto adr = client->peerAddress();
 
     connect(client, SIGNAL(disconnected()), this, SLOT(slot_client_disconnetcted()));
-    connect(client, SIGNAL(readyRead()), this, SLOT(slot_newMsg()));
 
     emit ClientConnected(adr.toString());
 }
