@@ -434,3 +434,6 @@ void MainWindow::loadConfiguration() {
 
     file.close();
 }
+
+
+

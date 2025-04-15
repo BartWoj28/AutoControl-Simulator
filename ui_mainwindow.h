@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.6.3
+** Created by: Qt User Interface Compiler version 6.5.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -38,8 +38,14 @@ public:
     QDoubleSpinBox *spinBoxK;
     QDoubleSpinBox *spinBoxTd;
     QLabel *label_7;
+    QGridLayout *gridLayout_5;
+    QSpinBox *spinBoxInterwal;
+    QComboBox *signalTypeComboBox;
+    QLabel *label_14;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *saveButton;
+    QPushButton *loadButton;
     QVBoxLayout *verticalLayoutPID;
-    QVBoxLayout *verticalLayoutUchyb;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QPushButton *startButton;
@@ -53,17 +59,11 @@ public:
     QDoubleSpinBox *spinBoxWypelnienie;
     QDoubleSpinBox *spinBoxOkres;
     QLabel *label_9;
-    QGridLayout *gridLayout_5;
-    QSpinBox *spinBoxInterwal;
-    QComboBox *signalTypeComboBox;
-    QLabel *label_14;
-    QVBoxLayout *verticalLayout_2;
-    QPushButton *saveButton;
-    QPushButton *loadButton;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButtonARX;
     QComboBox *comboBoxSposobCalkowania;
     QPushButton *pushButtonResetCalka;
+    QVBoxLayout *verticalLayoutUchyb;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -78,7 +78,7 @@ public:
         font.setFamilies({QString::fromUtf8("Arial")});
         font.setBold(true);
         MainWindow->setFont(font);
-        MainWindow->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        MainWindow->setLayoutDirection(Qt::LeftToRight);
         MainWindow->setAutoFillBackground(true);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -89,7 +89,7 @@ public:
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName("label_5");
         label_5->setAutoFillBackground(true);
-        label_5->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        label_5->setAlignment(Qt::AlignCenter);
 
         gridLayout_2->addWidget(label_5, 0, 1, 1, 1);
 
@@ -97,7 +97,7 @@ public:
         label_6->setObjectName("label_6");
         label_6->setMaximumSize(QSize(16777215, 300));
         label_6->setAutoFillBackground(true);
-        label_6->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        label_6->setAlignment(Qt::AlignCenter);
 
         gridLayout_2->addWidget(label_6, 0, 2, 1, 1);
 
@@ -133,37 +133,79 @@ public:
 
         label_7 = new QLabel(centralwidget);
         label_7->setObjectName("label_7");
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(label_7->sizePolicy().hasHeightForWidth());
         label_7->setSizePolicy(sizePolicy);
         label_7->setMinimumSize(QSize(0, 50));
-        label_7->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        label_7->setLayoutDirection(Qt::LeftToRight);
         label_7->setAutoFillBackground(true);
-        label_7->setFrameShape(QFrame::Shape::NoFrame);
-        label_7->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        label_7->setFrameShape(QFrame::NoFrame);
+        label_7->setAlignment(Qt::AlignCenter);
 
         gridLayout_2->addWidget(label_7, 0, 3, 1, 1);
 
 
         gridLayout->addLayout(gridLayout_2, 3, 0, 1, 1);
 
+        gridLayout_5 = new QGridLayout();
+        gridLayout_5->setObjectName("gridLayout_5");
+        gridLayout_5->setSizeConstraint(QLayout::SetMinimumSize);
+        spinBoxInterwal = new QSpinBox(centralwidget);
+        spinBoxInterwal->setObjectName("spinBoxInterwal");
+        spinBoxInterwal->setMinimumSize(QSize(0, 60));
+        spinBoxInterwal->setAutoFillBackground(true);
+        spinBoxInterwal->setMinimum(50);
+        spinBoxInterwal->setMaximum(1000);
+        spinBoxInterwal->setValue(200);
+
+        gridLayout_5->addWidget(spinBoxInterwal, 0, 2, 1, 1);
+
+        signalTypeComboBox = new QComboBox(centralwidget);
+        signalTypeComboBox->setObjectName("signalTypeComboBox");
+        signalTypeComboBox->setMinimumSize(QSize(0, 60));
+        signalTypeComboBox->setAutoFillBackground(true);
+
+        gridLayout_5->addWidget(signalTypeComboBox, 0, 0, 1, 1);
+
+        label_14 = new QLabel(centralwidget);
+        label_14->setObjectName("label_14");
+        label_14->setMinimumSize(QSize(0, 60));
+        label_14->setLayoutDirection(Qt::RightToLeft);
+        label_14->setAutoFillBackground(true);
+        label_14->setAlignment(Qt::AlignCenter);
+
+        gridLayout_5->addWidget(label_14, 0, 1, 1, 1);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        saveButton = new QPushButton(centralwidget);
+        saveButton->setObjectName("saveButton");
+
+        verticalLayout_2->addWidget(saveButton);
+
+        loadButton = new QPushButton(centralwidget);
+        loadButton->setObjectName("loadButton");
+
+        verticalLayout_2->addWidget(loadButton);
+
+
+        gridLayout_5->addLayout(verticalLayout_2, 0, 3, 1, 1);
+
+
+        gridLayout->addLayout(gridLayout_5, 1, 0, 1, 1);
+
         verticalLayoutPID = new QVBoxLayout();
         verticalLayoutPID->setObjectName("verticalLayoutPID");
 
-        gridLayout->addLayout(verticalLayoutPID, 3, 1, 2, 1);
-
-        verticalLayoutUchyb = new QVBoxLayout();
-        verticalLayoutUchyb->setObjectName("verticalLayoutUchyb");
-
-        gridLayout->addLayout(verticalLayoutUchyb, 3, 2, 2, 1);
+        gridLayout->addLayout(verticalLayoutPID, 3, 2, 2, 1);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setSizeConstraint(QLayout::SizeConstraint::SetDefaultConstraint);
+        verticalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
 
-        gridLayout->addLayout(verticalLayout, 0, 1, 3, 2);
+        gridLayout->addLayout(verticalLayout, 0, 2, 3, 2);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
@@ -212,16 +254,16 @@ public:
 
         label_8 = new QLabel(centralwidget);
         label_8->setObjectName("label_8");
-        QSizePolicy sizePolicy1(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Minimum);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(label_8->sizePolicy().hasHeightForWidth());
         label_8->setSizePolicy(sizePolicy1);
         label_8->setMinimumSize(QSize(134, 123));
-        label_8->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        label_8->setLayoutDirection(Qt::LeftToRight);
         label_8->setAutoFillBackground(true);
         label_8->setLineWidth(2);
-        label_8->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        label_8->setAlignment(Qt::AlignCenter);
 
         gridLayout_3->addWidget(label_8, 0, 0, 1, 1);
 
@@ -229,7 +271,7 @@ public:
         label_10->setObjectName("label_10");
         label_10->setMinimumSize(QSize(134, 123));
         label_10->setAutoFillBackground(true);
-        label_10->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        label_10->setAlignment(Qt::AlignCenter);
 
         gridLayout_3->addWidget(label_10, 0, 2, 1, 1);
 
@@ -256,59 +298,12 @@ public:
         label_9->setObjectName("label_9");
         label_9->setMinimumSize(QSize(135, 123));
         label_9->setAutoFillBackground(true);
-        label_9->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        label_9->setAlignment(Qt::AlignCenter);
 
         gridLayout_3->addWidget(label_9, 0, 1, 1, 1);
 
 
         gridLayout->addLayout(gridLayout_3, 0, 0, 1, 1);
-
-        gridLayout_5 = new QGridLayout();
-        gridLayout_5->setObjectName("gridLayout_5");
-        gridLayout_5->setSizeConstraint(QLayout::SizeConstraint::SetMinimumSize);
-        spinBoxInterwal = new QSpinBox(centralwidget);
-        spinBoxInterwal->setObjectName("spinBoxInterwal");
-        spinBoxInterwal->setMinimumSize(QSize(0, 60));
-        spinBoxInterwal->setAutoFillBackground(true);
-        spinBoxInterwal->setMinimum(50);
-        spinBoxInterwal->setMaximum(1000);
-        spinBoxInterwal->setValue(200);
-
-        gridLayout_5->addWidget(spinBoxInterwal, 0, 2, 1, 1);
-
-        signalTypeComboBox = new QComboBox(centralwidget);
-        signalTypeComboBox->setObjectName("signalTypeComboBox");
-        signalTypeComboBox->setMinimumSize(QSize(0, 60));
-        signalTypeComboBox->setAutoFillBackground(true);
-
-        gridLayout_5->addWidget(signalTypeComboBox, 0, 0, 1, 1);
-
-        label_14 = new QLabel(centralwidget);
-        label_14->setObjectName("label_14");
-        label_14->setMinimumSize(QSize(0, 60));
-        label_14->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
-        label_14->setAutoFillBackground(true);
-        label_14->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        gridLayout_5->addWidget(label_14, 0, 1, 1, 1);
-
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName("verticalLayout_2");
-        saveButton = new QPushButton(centralwidget);
-        saveButton->setObjectName("saveButton");
-
-        verticalLayout_2->addWidget(saveButton);
-
-        loadButton = new QPushButton(centralwidget);
-        loadButton->setObjectName("loadButton");
-
-        verticalLayout_2->addWidget(loadButton);
-
-
-        gridLayout_5->addLayout(verticalLayout_2, 0, 3, 1, 1);
-
-
-        gridLayout->addLayout(gridLayout_5, 1, 0, 1, 1);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
@@ -335,10 +330,15 @@ public:
 
         gridLayout->addLayout(horizontalLayout_2, 2, 0, 1, 1);
 
+        verticalLayoutUchyb = new QVBoxLayout();
+        verticalLayoutUchyb->setObjectName("verticalLayoutUchyb");
+
+        gridLayout->addLayout(verticalLayoutUchyb, 3, 3, 2, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1280, 19));
+        menubar->setGeometry(QRect(0, 0, 1280, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -355,16 +355,16 @@ public:
         label_5->setText(QCoreApplication::translate("MainWindow", "k", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Ti", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "Td", nullptr));
-        startButton->setText(QCoreApplication::translate("MainWindow", "ZADAJ ", nullptr));
-        wznowButton->setText(QCoreApplication::translate("MainWindow", "START", nullptr));
-        stopButton->setText(QCoreApplication::translate("MainWindow", "STOP", nullptr));
-        resetButton->setText(QCoreApplication::translate("MainWindow", "RESET", nullptr));
-        label_8->setText(QCoreApplication::translate("MainWindow", "AMPLITUDA", nullptr));
-        label_10->setText(QCoreApplication::translate("MainWindow", "WYPELNIENIE", nullptr));
-        label_9->setText(QCoreApplication::translate("MainWindow", "OKRES", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindow", "INTERWA\305\201", nullptr));
         saveButton->setText(QCoreApplication::translate("MainWindow", "ZAPISZ", nullptr));
         loadButton->setText(QCoreApplication::translate("MainWindow", "WGRAJ", nullptr));
+        startButton->setText(QCoreApplication::translate("MainWindow", "ZADAJ ", nullptr));
+        wznowButton->setText(QCoreApplication::translate("MainWindow", "START", nullptr));
+        stopButton->setText(QCoreApplication::translate("MainWindow", "STOP", nullptr));
+        resetButton->setText(QCoreApplication::translate("MainWindow", "reset", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "AMPLITUDA", nullptr));
+        label_10->setText(QCoreApplication::translate("MainWindow", "WYPELNIENIE", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "OKRES", nullptr));
         pushButtonARX->setText(QCoreApplication::translate("MainWindow", "ARX", nullptr));
         comboBoxSposobCalkowania->setItemText(0, QCoreApplication::translate("MainWindow", "Ti poza ca\305\202k\304\205", nullptr));
         comboBoxSposobCalkowania->setItemText(1, QCoreApplication::translate("MainWindow", "Ti pod ca\305\202k\304\205", nullptr));

@@ -12,6 +12,7 @@
 #include "UkladRegulacji.h"
 #include <QFileDialog>
 #include "ModelDialog.h"
+#include "ui_mainwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -43,6 +44,7 @@ private slots:
     void on_pushButtonARX_clicked();
     void on_pushButtonResetCalka_clicked();
     void on_comboBoxSposobCalkowania_currentIndexChanged(int index);
+
 
 private:
     int krok = 0;
